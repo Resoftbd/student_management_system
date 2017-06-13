@@ -28,7 +28,14 @@
                     <ul class="dropdown-menu sub">
                         <a href="edit profile.html"><li><i class="fa fa-user" aria-hidden="true"></i>Edit Profile</li></a>
                         <a href="add admin.html"><li><i class="fa fa-user-plus" aria-hidden="true"></i>Add or remove</li></a>
-                        <a href=""><li><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</li></a>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            <li><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</li>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </ul>
                 </li></div>
 
@@ -69,7 +76,7 @@
                 <img src="{{asset('student/img/pro.jpg')}}" class="img-circle img-responsive" style="padding-left:10px;">
             </div>
             <div class="col-sm-8">
-                <h5>Saki Kowser</h5>
+                <h5>{{Auth::user()->name}}</h5>
                 <h6><i class="fa fa-circle" aria-hidden="true" style="color:#2b2; font-size:12px; padding-top:-12px;"> </i> Online</h6>
             </div>
         </div>

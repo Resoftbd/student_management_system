@@ -78,6 +78,7 @@
             <a href="advise_students.html"><li><h5><i class="fa fa-users" aria-hidden="true"></i> Students under advice</h5></li></a>
             <a href="project_students.html"><li><h5><i class="fa fa-user-times" aria-hidden="true"></i>Students under project</h5></li></a>
             <a href="slideshow.html"><li><h5><i class="fa fa-photo" aria-hidden="true"></i> Slideshow</h5></li></a>
+            <a href="/admin/notice"><li><h5><i class="fa fa-photo" aria-hidden="true"></i> Notice</h5></li></a>
             <a href="add links.html"><li><h5><i class="fa fa-link" aria-hidden="true"></i> Add links</h5></li></a>
         </ul>
     </div>
