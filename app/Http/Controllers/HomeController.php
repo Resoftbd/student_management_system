@@ -27,7 +27,7 @@ class HomeController extends Controller
         if($designation=='student')
             redirect('/dashboard');
         else
-            return view('home');
+            redirect('/admin-dashboard');
     }
     /**
     Completing  Student's profile
