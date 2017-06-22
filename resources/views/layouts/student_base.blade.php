@@ -70,30 +70,34 @@
 
 <!-- Left side bar -->
 <div class="row container-fluid">
+    @foreach($student as $user)
     <div class="col-xs-2 menu">
         <div class="row menu-head">
             <div class="col-sm-4">
-                <img src="{{asset('student/img/pro.jpg')}}" class="img-circle img-responsive" style="padding-left:10px;">
+                <img src="{{$user['student_photo']}}" class="img-circle img-responsive" style="padding-left:10px;">
             </div>
             <div class="col-sm-8">
-                <h5>{{Auth::user()->name}}</h5>
+                <h5>{{$user['student_name']}}</h5>
+
                 <h6><i class="fa fa-circle" aria-hidden="true" style="color:#2b2; font-size:12px; padding-top:-12px;"> </i> Online</h6>
             </div>
         </div>
         <ul>
 
-            <a href="admin.blade.php"><li><h5><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</h5></li></a>
+            <a href="dashboard"><li><h5><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</h5></li></a>
             <a href="grades.blade.php"><li><h5><i class="fa fa-users" aria-hidden="true"></i> Grades</h5></li></a>
-            <a href="notices.blade.php"><li><h5><i class="fa fa-user-times" aria-hidden="true"></i>Notices</h5></li></a>
-            <a href="remarks.html"><li><h5><i class="fa fa-photo" aria-hidden="true"></i> Remarks</h5></li></a>
-            <a href="save_remark.html"><li><h5><i class="fa fa-link" aria-hidden="true"></i> Add Remarks</h5></li></a>
+            @if($user['student_approved']==1)
+            <a href="allNotices"><li><h5><i class="fa fa-user-times" aria-hidden="true"></i>Notices</h5></li></a>
+            <a href="remarks"><li><h5><i class="fa fa-photo" aria-hidden="true"></i> Remarks</h5></li></a>
+            <a href="newRemarks"><li><h5><i class="fa fa-link" aria-hidden="true"></i> Add Remarks</h5></li></a
+            @endif
         </ul>
     </div>
 
 
     @yield('student_content')
 
-
+    @endforeach
 
 
 </div>
