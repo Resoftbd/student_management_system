@@ -235,7 +235,7 @@
 						</div>
 						<br><br>
 					</form>
-					<p style="margin-top:75px; float:right; color:#aaa">Developed by <a href="http://resoftbd.com">Resoft</a></p>
+					<p style="margin-top:75px; float:right; color:#aaa">Developed by Resoft</p>
 				</div>
 
 

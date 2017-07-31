@@ -27,7 +27,6 @@
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu sub">
                         <a href="edit profile.html"><li><i class="fa fa-user" aria-hidden="true"></i>Edit Profile</li></a>
-                        <a href="add admin.html"><li><i class="fa fa-user-plus" aria-hidden="true"></i>Add or remove</li></a>
                         <a href=""><li><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</li></a>
                     </ul>
                 </li></div>
@@ -66,23 +65,30 @@
     <div class="col-xs-2 menu">
         <div class="row menu-head">
             <div class="col-sm-4">
-                <img src="{{asset('admin/image/ss2.jpg')}}" class="img-circle img-responsive" style="padding-left:10px;">
+                <?php
+                    $data= \App\AdminProfile::all();
+                ?>
+                    @foreach($data as $d)
+
+
+                <img src="{{asset('uploaded')}}{{'/'}}{{$d->admin_propic}}" class="img-responsive" style="padding-left:10px; height:6vh; width:6vh; border-radius: 3.1vh">
             </div>
             <div class="col-sm-8">
-                <h5>Saki Kowser</h5>
+                <h5>{{$d->admin_name}}</h5>
                 <h6><i class="fa fa-circle" aria-hidden="true" style="color:#2b2; font-size:12px; padding-top:-12px;"> </i> Online</h6>
             </div>
+            @endforeach
         </div>
         <ul>
             <a href="admin.html"><li><h5><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</h5></li></a>
             <a href="advise_students.html"><li><h5><i class="fa fa-users" aria-hidden="true"></i> Students under advice</h5></li></a>
             <a href="project_students.html"><li><h5><i class="fa fa-user-times" aria-hidden="true"></i>Students under project</h5></li></a>
-            <a href="slideshow.html"><li><h5><i class="fa fa-photo" aria-hidden="true"></i> Slideshow</h5></li></a>
+            <a href="/admin/sliders"><li><h5><i class="fa fa-photo" aria-hidden="true"></i> Slideshow</h5></li></a>
             <a href="/admin/notice"><li><h5><i class="fa fa-photo" aria-hidden="true"></i> Notice</h5></li></a>
-            <a href="add links.html"><li><h5><i class="fa fa-link" aria-hidden="true"></i> Add links</h5></li></a>
+            <a href="/admin/link"><li><h5><i class="fa fa-link" aria-hidden="true"></i> Add links</h5></li></a>
         </ul>
     </div>
-
+</div>
 
     @yield('admin_content')
 
@@ -92,12 +98,4 @@
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
 

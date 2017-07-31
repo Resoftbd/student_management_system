@@ -77,11 +77,11 @@ body{ height:100vh; overflow-x: hidden; padding-top:14vh; font-family: 'Arvo', s
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner jumborton" role="listbox">
 			<div class="item active">
-				<img src="img/demo1.jpg" alt="resoft" class="slider-image">
+				<img src="{{asset('admin/image/demo1.jpg')}}" alt="resoft" class="slider-image">
 			</div>
 
 			<div class="item">
-				<img src="img/demo2.jpg" alt="resoft" class="slider-image">
+				<img src="{{asset('admin/image/demo1.jpg')}}" alt="resoft" class="slider-image">
 			</div>
 
 		</div>
@@ -101,13 +101,19 @@ body{ height:100vh; overflow-x: hidden; padding-top:14vh; font-family: 'Arvo', s
 
 
 <br><br>
+
+<?php
+$data= \App\Homeinfo::all();
+?>
+@foreach($data as $d)
+
 <div class="container-fluid row" style="width:100vw; background: #ddd; padding: 20px 120px;">
 		<div class="col-xs-3" style="margin-top:20px;">
-			<img src="img/ss1.jpg" style="width:175px; height:200px;">
+			<img src="{{asset('uploaded')}}{{'/'}}{{$d->home_image_1}}" style="width:175px; height:200px;">
 		</div>
 		<div class="col-xs-9">
 			<h2>About</h2>
-			<b><p class="text-justify">Lorem ipsul dolor sil amet. Here will remain some description. Description about Mir Muhammad Saki Kawsar sir.Lorem ipsul dolor sil amet. Lorem ipsul dolor sil amet. Here will remain some description. Description about Mir Muhammad Saki Kawsar sir.Lorem ipsul dolor sil amet. Lorem ipsul dolor sil amet. Here will remain some description. Description about Mir Muhammad Saki Kawsar sir.Lorem ipsul dolor sil amet. Here will remain some description. Description about students.Lorem ipsul dolor sil amet. Here will remain some description. Description about students.Lorem ipsul dolor sil amet. Here will remain some description. Description about Mir Muhammad Saki Kawsar sir.Lorem ipsul dolor sil amet. Here will remain some description. Description about students.Lorem ipsul dolor sil amet. Here will remain some description. Description about students.</p>
+			<b><p class="text-justify">{{$d->home_about}}</p>
 		</b></div>
 
 </div>
@@ -119,10 +125,10 @@ body{ height:100vh; overflow-x: hidden; padding-top:14vh; font-family: 'Arvo', s
 <div class="container-fluid row" style="width:100vw; background: #ccc; border:1px dotted #ccc; padding: 20px 120px;">
 	<div class="col-xs-9">
 		<h2>A few words</h2>
-		<b><p class="text-justify">Lorem ipsul dolor sil amet. Here will remain some description. A few words from mir muhammad saki kawsar sir.Lorem ipsul dolor sil amet. Lorem ipsul dolor sil amet. Here will remain some description. A few words from mir muhammad saki kawsar sir.Lorem ipsul dolor sil amet. Lorem ipsul dolor sil amet. Here will remain some description. A few words from mir muhammad saki kawsar sir.Lorem ipsul dolor sil amet. Here will remain some description. Description about students.Lorem ipsul dolor sil amet. Here will remain some description. A few words from mir muhammad saki kawsar sir.Lorem ipsul dolor sil amet. Here will remain some description. Description about students.Lorem ipsul dolor sil amet. Here will remain some description. A few words from mir muhammad saki kawsar sir.Lorem ipsul dolor sil amet. Here will remain some description. Description about students.</p>
+		<b><p>{{$d->home_words}}</p>
 		</b></div>
 	<div class="col-xs-3" style="margin-top:20px;">
-		<img src="img/ss1.jpg" class="pull-right" style="width:175px; height:200px;">
+		<img src="{{asset('uploaded')}}{{'/'}}{{$d->home_image_2}}" class="pull-right" style="width:175px; height:200px;">
 	</div>
 </div>
 
@@ -131,11 +137,11 @@ body{ height:100vh; overflow-x: hidden; padding-top:14vh; font-family: 'Arvo', s
 <br>
 <div class="container-fluid row" style="width:100vw; background: #ddd; padding: 20px 120px;">
 	<div class="col-xs-3" style="margin-top:15px;">
-			<img src="img/stu2.png" style="width:175px; height:175px;">
+			<img src="{{asset('admin/image/stu2.png')}}" style="width:175px; height:175px;">
 		</div>
 		<div class="col-xs-9">
 			<h2>Students under project</h2>
-			<b><p class="text-justify">Lorem ipsul dolor sil amet. Here will remain some description. Description about students.Lorem ipsul dolor sil amet. Lorem ipsul dolor sil amet. Here will remain some description. Description about students.Lorem ipsul dolor sil amet. Here will remain some description. Description about students.Lorem ipsul dolor sil amet. Here will remain some description. Description about students. Description about students.Lorem ipsul dolor sil amet. Here will remain some description. Description about students.Lorem ipsul dolor sil amet. Here will remain some description. Description about students.</p>
+			<b><p class="text-justify">{{$d->home_project}}</p>
 			</b></div>
 	<br><br><br>
 
@@ -145,26 +151,29 @@ body{ height:100vh; overflow-x: hidden; padding-top:14vh; font-family: 'Arvo', s
 <div class="container-fluid row"  style="width:100vw; background: #ccc; padding: 20px 120px;">
 	<div class="col-xs-9">
 		<h2>Students under advise</h2>
-		<b><p class="text-justify">Lorem ipsul dolor sil amet. Here will remain some description. Description about students.Lorem ipsul dolor sil amet. Here will remain some description. Description about students. Lorem Ipsum Dolor Amet. Lorem ipsul dolor sil amet. Here will remain some description. Description about students. Lorem Ipsum Dolor Amet. Lorem ipsul dolor sil amet. Here will remain some description. Description about students. Lorem Ipsum Dolor Amet. Description about students.Lorem ipsul dolor sil amet. Here will remain some description. Description about students. Description about students.Lorem ipsul dolor sil amet. Here will remain some description. Description about students.</p>
+		<b><p class="text-justify">{{$d->home_advise}}</p>
 		</b></div>
 	<div class="col-xs-3" style="margin-top:25px;">
-		<img src="img/stu1.png" class="pull-right" style="width:175px; height:175px;">
+		<img src="{{asset('admin/image/stu1.png')}}" class="pull-right" style="width:175px; height:175px;">
 	</div>
 </div>
-
+@endforeach
 
 <br>
 <div class="container-fluid row" style="width:100vw; background: #ddd; padding: 20px 120px;">
 	<div class="col-xs-3" style="margin-top:15px;">
-		<img src="img/glb.png" style="width:175px; height:175px;">
+		<img src="{{asset('admin/image/glb.png')}}" style="width:175px; height:175px;">
 	</div>
 	<div class="col-xs-9">
 		<h2>Web links</h2>
 		<p><b>You can also be connected through the social sites and of course you are cordially welcomed to be connected through web. All the available links are given below:</b></p>
-		<b><span class="fa fa-facebook social-icons"></span></b>
-		<b><span class="fa fa-google-plus social-icons"></span></b>
-		<b><span class="fa fa-twitter social-icons"></span></b>
-		<b><span class="fa fa-skype social-icons"></span></b>
+		@foreach($link_data as $link)
+		<b><a href="{{$link->link_facebook}}"><span class="fa fa-facebook social-icons"></span></a></b>
+		<b><a href="{{$link->link_google_plus}}"><span class="fa fa-google-plus social-icons"></span></a></b>
+		<b><a href="{{$link->link_twitter}}"><span class="fa fa-twitter social-icons"></span></a></b>
+		<b><a href="{{$link->link_youtube}}"><span class="fa fa-youtube social-icons"></span></a></b>
+		<b><a href="{{$link->link_linkedin}}"><span class="fa fa-linkedin social-icons"></span></a></b>
+			@endforeach
 	</div>
 	<br><br><br>
 
@@ -173,10 +182,15 @@ body{ height:100vh; overflow-x: hidden; padding-top:14vh; font-family: 'Arvo', s
 
 
 <div class="container-fluid row" style="width:100vw; background: #333; padding: 20px 40px; text-align: center; color:#ddd;">
-	<b>&copy; Mir Muhammad Saki Kausar<br>
-		Assistant professor, CSE, CUET<br>
-	email:something@gmail.com<br>
-	cell:0132342422</b>
+	<?php
+	$footer=\App\AdminProfile::all();
+	?>
+	@foreach($footer as $f)
+	<b>&copy; {{$f->admin_name}}<br>
+		{{$f->admin_designation}}, CSE, {{$f->admin_institution}}<br>
+	email:{{$f->admin_email}}<br>
+	cell:{{$f->iadmin_cell}}</b>
+		@endforeach
 
 </div>
 
